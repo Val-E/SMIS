@@ -1,0 +1,6 @@
+selenium
+sqlalchemy
+pandas
+numpy
+networkx
+plotly

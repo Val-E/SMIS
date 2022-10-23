@@ -1,0 +1,15 @@
+{
+  " he/": "male",
+  "/he ": "male",
+  " er/": "male",
+  "/er ": "male",
+  "männlich": "male",
+  "male": "male",
+
+  " she/": "female",
+  "/she ": "female",
+  " sie/": "female",
+  "/sie ": "female",
+  "weiblich": "female",
+  "female": "female"
+}
