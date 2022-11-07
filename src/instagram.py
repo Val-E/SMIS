@@ -167,7 +167,7 @@ def get_followers(user_handle: str) -> set:
     followers: set = {re.sub("Verified", "", follower.text).strip() for follower in followers}
 
     # close modal before leaving profile
-    driver.execute_script("""document.getElementsByClassName("_abl-")[3].click();""")
+    driver.execute_script("""document.getElementsByClassName("_abl-")[2].click();""")
 
     return followers
 
@@ -247,6 +247,7 @@ async def profile_scraper() -> None:
 
     if create_following_relation_task:
         await create_following_relation_task
+
     if create_profile_task:
         await create_profile_task
 
