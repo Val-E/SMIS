@@ -72,6 +72,13 @@ def open_user_profile(user_handle: str) -> None:
     # remove content from old profile
     driver.execute_script("""document.getElementsByTagName("main")[0].innerHTML='';""")
 
+    # open search bar 
+    WebDriverWait(driver, TIMEOUT).until(
+        EC.element_to_be_clickable(
+            (By.LINK_TEXT, "Search")
+        )
+    ).click()
+
     # find search bar
     search_bar = WebDriverWait(driver, TIMEOUT).until(
         lambda driver: 
@@ -91,7 +98,7 @@ def open_user_profile(user_handle: str) -> None:
     # open profile
     WebDriverWait(driver, TIMEOUT).until(
         EC.element_to_be_clickable(
-            (By.XPATH,f"//a[@href='/{user_handle}/?next=%2F']")
+            (By.XPATH, f"//a[@href='/{user_handle}/?next=%2F']")
         )
     ).click()
 
