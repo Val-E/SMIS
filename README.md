@@ -37,7 +37,7 @@ Then you have to tell the software your username and password for the platform y
 All targets are safed in a set of 2-tuples. The tuple contains the user handler of the target user and the depth.
 The depth specifies how many levels the program has to run down recursively. **DO NOT PUT THE VALUE TOO HIGH**, especially if you know the users in the bubble follow a lot of people, because the number grows exponentially. 
 
-Example: `ROOT_PROFILES: str = {('first_target', 1), ('second_target', 2), ('last_target', 0)}`
+Example: `ROOT_PROFILES: set = {('first_target', 1), ('second_target', 2), ('last_target', 0)}`
 
 If you wanne avoid to evalute data from some accounts put their user handle into the blacklist.
 
