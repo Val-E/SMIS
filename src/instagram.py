@@ -166,8 +166,9 @@ def get_followers(user_handle: str) -> set:
     )
     followers: set = {re.sub("Verified", "", follower.text).strip() for follower in followers}
 
+    # TODO work here futher
     # close modal before leaving profile
-    driver.execute_script("""document.getElementsByClassName("_abl-")[2].click();""")
+    driver.execute_script("""document.getElementsByClassName("_abl-")[1].click();""")
 
     return followers
 
@@ -223,9 +224,11 @@ async def profile_scraper() -> None:
         try:
             # log users which user is following
             followers: set = get_followers(user_handle)
+
             if create_following_relation_task:
                 await create_following_relation_task
             create_following_relation_task = asyncio.create_task(create_following_relation(user_handle, followers))
+
 
             # add followed users to profile set
             if depth == 0:
@@ -243,7 +246,7 @@ async def profile_scraper() -> None:
             # except if user account is private or the user followes nobody
             logging.warning(f"Failed to file following relationship of user. USER: {user_handle}.")
             continue
-
+        
 
     if create_following_relation_task:
         await create_following_relation_task
